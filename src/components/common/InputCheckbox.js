@@ -1,6 +1,11 @@
 import "./styles.css";
 
-const InputCheckbox = ({ question, checkboxSet, onChange }) => {
+const InputCheckbox = ({
+  question,
+  checkboxSet,
+  onChange,
+  checkboxLabelOnRight = false,
+}) => {
   return (
     <div
       className={`input_wrapper_${question}`}
@@ -17,6 +22,7 @@ const InputCheckbox = ({ question, checkboxSet, onChange }) => {
           display: "flex",
           justifyContent: "flex-end",
           marginRight: "80px",
+          marginTop: "20px",
         }}
       >
         {checkboxSet.map((checkboxValue) => {
@@ -25,17 +31,33 @@ const InputCheckbox = ({ question, checkboxSet, onChange }) => {
               className={`checkbox_${question}_wrapper`}
               style={{ display: "flex", marginRight: "50px" }}
             >
-              <label
-                style={{ marginRight: "20px" }}
-                className={`label_checkbox_${checkboxValue}`}
-              >
-                {checkboxValue}
-              </label>
+              {!checkboxLabelOnRight ? (
+                <label
+                  style={{ marginRight: "20px" }}
+                  className={`label_checkbox_${checkboxValue}`}
+                >
+                  {checkboxValue}
+                </label>
+              ) : (
+                <></>
+              )}
+
               <input
                 className={`input_${question}`}
                 type="checkbox"
-                onChange={(e) => onChange(checkboxValue)}
+                onChange={() => onChange(checkboxValue)}
               />
+
+              {checkboxLabelOnRight ? (
+                <label
+                  style={{ marginLeft: "20px" }}
+                  className={`label_checkbox_${checkboxValue}`}
+                >
+                  {checkboxValue}
+                </label>
+              ) : (
+                <></>
+              )}
             </div>
           );
         })}

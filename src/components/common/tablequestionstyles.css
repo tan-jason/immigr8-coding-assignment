@@ -1,6 +1,8 @@
 table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   
   tr th {
@@ -24,4 +26,9 @@ table {
     padding: 12px 12px;
     font-family:"Noto Sans", sans-serif;
   }
+
+.table_question_container {
+  display: block;
+  width: 92%;
+}
   

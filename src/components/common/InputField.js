@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const InputField = ({ fieldName, onChange, style, marginFix }) => {
+const InputField = ({ fieldName, onChange, style }) => {
   return (
     <div
       className={`input_wrapper_${fieldName}`}

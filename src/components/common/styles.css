@@ -101,9 +101,10 @@ input[class^="input_"] {
     font-size: 1.8em;
     border-radius: 0.125em;
     border: var(--borderWidth) solid black;
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
     position: relative;
+    padding: 0;
   }
   div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:before,
   div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:after {

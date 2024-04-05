@@ -22,7 +22,7 @@ const IndividualPetitionSecondForm = () => {
   });
 
   const handleOnSubmit = () => {
-    // TODO: handle API call and store data
+    // TODO: handle API call and store formData
   };
 
   const handleInputChange = (field, value) => {
@@ -108,7 +108,7 @@ const IndividualPetitionSecondForm = () => {
             />
           </div>
         </form>
-        <div className="button-container" style={{ display: "flex" }}>
+        <div className="button_container">
           <PreviousButton />
           <SubmitButton
             nextPage={"/individual-petition/third"}
