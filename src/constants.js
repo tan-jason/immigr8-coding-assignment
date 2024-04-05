@@ -23,6 +23,24 @@ export const long_table_question_2 = (
   </p>
 );
 
+export const ADDITIONAL_FEES = (
+  <p>
+    <b>Note:</b> A petitioner that seeks initial approval of L nonimmigrant
+    status for a beneficiary, or seeks approval to employ an L nonimmigrant
+    currently working for another employer, must submit an additional{" "}
+    <b>$500</b> Fraud Prevention and Detection fee. For petitions filed on or
+    after December 18, 2015, you must submit an additional fee of <b>$4,500</b>{" "}
+    if you responded yes to both questions in <b>Item Numbers 4.a.</b> and{" "}
+    <b>4.b.</b> on the first page of this L Classification Supplement. This{" "}
+    <b>$4,500</b> fee is mandated by the provisions of Public Law 114-113.{" "}
+    <br />
+    <b>These fees, when applicable, may not be waived.</b> You must include
+    payment of the fees with your submission of this form. Failure to submit the
+    fees when required will result in rejection or denial of your submission.
+    Each of these fees should be paid by separate checks or money orders.
+  </p>
+);
+
 export const US_STATES = [
   "AL",
   "AK",

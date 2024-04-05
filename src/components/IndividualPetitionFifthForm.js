@@ -65,7 +65,7 @@ const IndividualPetitionFifthForm = () => {
       <div className="button_container">
         <PreviousButton />
         <SubmitButton
-          nextPage={"/individual-petition/second"}
+          nextPage={"/individual-petition/sixth"}
           handleOnSubmit={() => {}}
         />
       </div>

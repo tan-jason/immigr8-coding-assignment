@@ -6,6 +6,8 @@ import IndividualPetitionSecondForm from "./components/IndividualPetitionSecondF
 import IndividualPetitionThirdForm from "./components/IndividualPetitionThirdForm";
 import IndividualPetitionFourthForm from "./components/IndividualPetitionFourthForm";
 import IndividualPetitionFifthForm from "./components/IndividualPetitionFifthForm";
+import IndividualPetitionSixthForm from "./components/IndividualPetitionSixthForm";
+import AdditionalFees from "./components/AdditionalFees";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BackgroundInfromationSection />} />
+          <Route path="/blanket-petition" element={<BlanketPetitionForm />} />
           <Route
             path="/individual-petition/first"
             element={<IndividualPetitionFirstForm />}
@@ -33,6 +36,11 @@ function App() {
             path="/individual-petition/fifth"
             element={<IndividualPetitionFifthForm />}
           />
+          <Route
+            path="/individual-petition/sixth"
+            element={<IndividualPetitionSixthForm />}
+          />
+          <Route path="/additional-fees" element={<AdditionalFees />} />
           <Route path="/blanket-petition" element={<BlanketPetitionForm />} />
         </Routes>
       </BrowserRouter>
