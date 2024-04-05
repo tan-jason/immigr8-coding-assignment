@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+  
+  tr th {
+    font-size: 18px;
+    padding: 12px;
+    border: 1px solid #eeeeee;
+    text-align: center;
+    background-color: rgba(217, 221, 146, 0.2);
+  }
+  
+  tr td {
+    border: 1px solid #eeeeee;
+    text-align: left;
+  }
+  
+  input {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    width: 91%;
+    padding: 12px 12px;
+    font-family:"Noto Sans", sans-serif;
+  }
+  

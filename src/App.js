@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BackgroundInfromationSection from "./components/BackgroundInformationSection";
+import IndividualPetitionFirstForm from "./components/IndividualPetitionFirstForm";
+import BlanketPetitionForm from "./components/BlanketPetitionForm";
+import IndividualPetitionSecondForm from "./components/IndividualPetitionSecondForm";
+import IndividualPetitionThirdForm from "./components/IndividualPetitionThirdForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-wrapper">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<BackgroundInfromationSection />} />
+          <Route
+            path="/individual-petition/first"
+            element={<IndividualPetitionFirstForm />}
+          />
+          <Route
+            path="/individual-petition/second"
+            element={<IndividualPetitionSecondForm />}
+          />
+          <Route
+            path="/individual-petition/third"
+            element={<IndividualPetitionThirdForm />}
+          />
+          <Route path="/blanket-petition" element={<BlanketPetitionForm />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,0 +1,140 @@
+div[class^="input_wrapper_"] {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 20px;
+    width: 500px;
+  }
+
+input[class^="input_"] {
+    height: 20px;
+    border: none;
+    padding-top: 30px;
+    margin-bottom: -10px;
+    outline: none;
+  }
+  
+  label[class^="label_field_"] {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid rgb(196, 196, 196);
+    overflow: hidden;
+  }
+  
+  label[class^="label_field_"]:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid rgb(50, 93, 236);
+    transition: transform 250ms;
+    transform: translateX(-100%);
+  }
+  
+  label[class^="label_field_"]:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 14px;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+  }
+  
+  label[class^="label_field_"]-content {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    transition: transform 250ms;
+    color: rgb(79, 113, 226);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  input[class^="input_"]:focus + label[class^="label_field_"]:after,
+  input[class^="input_"]:valid + label[class^="label_field_"]:after,
+  input[class^="input_"]:not([value=""]):invalid + label[class^="label_field_"]:after {
+    transform: translateX(0%);
+  }
+  
+  input[class^="input_"]:focus + label[class^="label_field_"] label[class^="label_field_"]-content,
+  input[class^="input_"]:valid + label[class^="label_field_"] label[class^="label_field_"]-content,
+  input[class^="input_"]:not([value=""]):invalid + label[class^="label_field_"] label[class^="label_field_"]-content {
+    transform: translateY(-150%);
+  }
+  
+  input[class^="input_"]:not([value=""]):invalid + label[class^="label_field_"]:after {
+    border-color: red;
+  }
+  
+  input[class^="input_"]:not([value=""]):invalid + label[class^="label_field_"]:before {
+    background: red;
+  }
+  
+  input[class^="input_"]:valid + label[class^="label_field_"]:before {
+    background: rgb(50, 93, 236);
+  }
+
+  div[class^="checkbox_"][class$="_wrapper"] {
+    --borderColor: #48c;
+    --borderWidth: .125em;
+  }
+
+  div[class^="checkbox_"][class$="_wrapper"] label {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox] {
+    margin-top: -5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #fff;
+    font-size: 1.8em;
+    border-radius: 0.125em;
+    border: var(--borderWidth) solid black;
+    width: 15px;
+    height: 15px;
+    position: relative;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:before,
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+    background: black;
+    width: calc(var(--borderWidth) * 3);
+    height: var(--borderWidth);
+    top: 50%;
+    left: 15%;
+    transform-origin: left center;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:before {
+    transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(0);
+    transition: transform 200ms ease-in 200ms;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:after {
+    width: calc(var(--borderWidth) * 5);
+    transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(0);
+    transform-origin: left center;
+    transition: transform 200ms ease-in;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:checked:before {
+    transform: rotate(45deg) translate(calc(var(--borderWidth) / -2), calc(var(--borderWidth) / -2)) scaleX(1);
+    transition: transform 200ms ease-in;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:checked:after {
+    width: calc(var(--borderWidth) * 5);
+    transform: rotate(-45deg) translateY(calc(var(--borderWidth) * 2)) scaleX(1);
+    transition: transform 200ms ease-out 200ms;
+  }
+  div[class^="checkbox_"][class$="_wrapper"] input[type=checkbox]:focus {
+    outline: calc(var(--borderWidth) / 2) dotted rgba(0, 0, 0, 0.25);
+  }
