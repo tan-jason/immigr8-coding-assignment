@@ -8,6 +8,7 @@ export const long_table_question_1 = (
     dependent status, for example, H-4 or L-2 status. If more space is needed,
     go to <b>Part 9, of Form I-129.</b>
     <br />
+    <br />
     <b>Note:</b> Submit photocopies of Forms I-94, I-797, and/or other USCIS
     issued documents noting these periods of stay in the H or L classification.
     (If more space is needed, attach an additional sheet.)

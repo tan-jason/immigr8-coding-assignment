@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BackgroundInfromationSection from "./components/BackgroundInformationSection";
-import IndividualPetitionFirstForm from "./components/IndividualPetitionFirstForm";
-import BlanketPetitionForm from "./components/BlanketPetitionForm";
-import IndividualPetitionSecondForm from "./components/IndividualPetitionSecondForm";
-import IndividualPetitionThirdForm from "./components/IndividualPetitionThirdForm";
-import IndividualPetitionFourthForm from "./components/IndividualPetitionFourthForm";
-import IndividualPetitionFifthForm from "./components/IndividualPetitionFifthForm";
-import IndividualPetitionSixthForm from "./components/IndividualPetitionSixthForm";
-import AdditionalFees from "./components/AdditionalFees";
+import BackgroundInfromationSection from "./client/BackgroundInformationSection";
+import IndividualPetitionFirstForm from "./client/IndividualPetitionFirstForm";
+import BlanketPetitionForm from "./client/BlanketPetitionForm";
+import IndividualPetitionSecondForm from "./client/IndividualPetitionSecondForm";
+import IndividualPetitionThirdForm from "./client/IndividualPetitionThirdForm";
+import IndividualPetitionFourthForm from "./client/IndividualPetitionFourthForm";
+import IndividualPetitionFifthForm from "./client/IndividualPetitionFifthForm";
+import IndividualPetitionSixthForm from "./client/IndividualPetitionSixthForm";
+import AdditionalFees from "./client/AdditionalFees";
 
 function App() {
   return (
