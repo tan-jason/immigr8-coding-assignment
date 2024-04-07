@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/immigr8-coding-assignment.iml" filepath="$PROJECT_DIR$/.idea/immigr8-coding-assignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/server/immigr8CodingAssignment.iml" filepath="$PROJECT_DIR$/src/server/immigr8CodingAssignment.iml" />
     </modules>
   </component>
 </project>
