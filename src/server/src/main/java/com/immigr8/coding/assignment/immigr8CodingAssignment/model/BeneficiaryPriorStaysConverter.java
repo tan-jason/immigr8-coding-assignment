@@ -2,32 +2,52 @@ package com.immigr8.coding.assignment.immigr8CodingAssignment.model;
 
 import jakarta.persistence.AttributeConverter;
 
-public class BeneficiaryPriorStaysConverter implements AttributeConverter<BeneficiaryPriorStays, String> {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class BeneficiaryPriorStaysConverter implements AttributeConverter<BeneficiaryPriorStays[], String> {
 
     @Override
-    public String convertToDatabaseColumn(BeneficiaryPriorStays beneficiaryPriorStays) {
+    public String convertToDatabaseColumn(BeneficiaryPriorStays[] beneficiaryPriorStays) {
         if (beneficiaryPriorStays == null) {
             return null;
         }
 
-        return beneficiaryPriorStays.getSubjectName() + "," + beneficiaryPriorStays.getPeriodStart() + "," + beneficiaryPriorStays.getPeriodEnd();
+        String beneficiaryPriorStaysStr = "";
+        for (BeneficiaryPriorStays bps : beneficiaryPriorStays) {
+            beneficiaryPriorStaysStr = beneficiaryPriorStaysStr +
+                    "{" + "subjectName: " + bps.getSubjectName() + ", " +
+                    "periodStart: " + bps.getPeriodStart() + ", " +
+                    "periodEnd: " + bps.getPeriodEnd() + "},\n";
+        }
+
+        return beneficiaryPriorStaysStr;
     }
 
     @Override
-    public BeneficiaryPriorStays convertToEntityAttribute(String dbPriorStays) {
-        if (dbPriorStays == null) {
-            return null;
+    public BeneficiaryPriorStays[] convertToEntityAttribute(String dbPriorStays) {
+        int numBranches = 0;
+        for (int i = 0; i < dbPriorStays.length(); i++) {
+            if (dbPriorStays.charAt(i) == '{') {
+                numBranches++;
+            }
         }
 
-        String[] priorStaysAttributes = dbPriorStays.split(",");
-        if (priorStaysAttributes.length != 3) {
-            return null;
+        Pattern pattern = Pattern.compile("\\{subjectName: (.*?), periodStart: (.*?), periodEnd: (.*?)\\}");
+
+        Matcher matcher = pattern.matcher(dbPriorStays);
+
+        BeneficiaryPriorStays[] beneficiaryPriorStays = new BeneficiaryPriorStays[numBranches];
+        int i = 0;
+        while (matcher.find()) {
+            String subjectName = matcher.group(1);
+            String periodStart = matcher.group(2);
+            String periodEnd = matcher.group(3);
+
+            beneficiaryPriorStays[i] = new BeneficiaryPriorStays(subjectName, periodStart, periodEnd);
+            i++;
         }
 
-        String subjectName = priorStaysAttributes[0];
-        String periodStart = priorStaysAttributes[1];
-        String periodEnd = priorStaysAttributes[2];
-
-        return new BeneficiaryPriorStays(subjectName, periodStart, periodEnd);
+        return beneficiaryPriorStays;
     }
 }

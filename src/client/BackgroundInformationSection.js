@@ -1,33 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import InputField from "./common/InputField";
 import InputCheckbox from "./common/InputCheckbox";
 import "./backgroundinformationstyle.css";
-import SubmitButton from "./common/SubmitButton";
+import NextButton from "./common/NextButton";
 
-const BackgroundInformationSection = () => {
-  const [formData, setFormData] = useState({
-    petitionerName: "",
-    beneficiary: "",
-    petitionType: "",
-    employsFiftyOrMore: "",
-    immigrantStatus: "",
-  });
-
-  const handleOnSubmit = () => {
-    const formDataObject = {};
-    Object.entries(formData).forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    // TODO: call endpoint and store in DB
-    console.log(formDataObject); // Log the form data
-    return false;
-  };
-
-  const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
-  };
-
+const BackgroundInformationSection = ({ handleInputChange, formData }) => {
   return (
     <div className="form_wrapper">
       <form className="background_information_form_wrapper">
@@ -37,7 +14,7 @@ const BackgroundInformationSection = () => {
         />
         <InputField
           fieldName="Name of the Beneficiary"
-          onChange={(value) => handleInputChange("beneficiary", value)}
+          onChange={(value) => handleInputChange("beneficiaryName", value)}
         />
         <InputCheckbox
           question={
@@ -51,21 +28,24 @@ const BackgroundInformationSection = () => {
         <InputCheckbox
           question="Does the petitioner employ 50 or more individuals in the U.S.?"
           checkboxSet={["Yes", "No"]}
-          onChange={(value) => handleInputChange("employsFiftyOrMore", value)}
+          onChange={(value) =>
+            handleInputChange("employsFiftyPlusIndividuals", value)
+          }
         />
         <InputCheckbox
           question="If yes, are more than 50 percent of those employee in H-1B, L-1A, or L1-B nonimmigrant status?"
           checkboxSet={["Yes", "No"]}
-          onChange={(value) => handleInputChange("immigrantStatus", value)}
+          onChange={(value) =>
+            handleInputChange("hasFiftyPlusNonImmigrantStatus", value)
+          }
         />
       </form>
-      <SubmitButton
+      <NextButton
         nextPage={
           formData.petitionType === "a. An individual petition"
             ? "/individual-petition/first"
-            : "/blanket-petition"
+            : "/blank-petition"
         }
-        handleOnSubmit={handleOnSubmit}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import { ADDITIONAL_FEES } from "../constants";
 import PreviousButton from "./common/PreviousButton";
 import SubmitButton from "./common/SubmitButton";
 
-const AdditionalFees = () => {
+const AdditionalFees = ({ formData }) => {
   return (
     <div
       className="text-wrapper"

@@ -6,6 +6,7 @@ const TableQuestion = ({
   numRows,
   handleTableInputChange,
   fields,
+  tableData,
 }) => {
   return (
     <div className="table_question_container">
@@ -30,7 +31,8 @@ const TableQuestion = ({
                         handleTableInputChange(
                           rowIndex,
                           fields[colIndex],
-                          e.target.value
+                          e.target.value,
+                          tableData
                         )
                       }
                     />

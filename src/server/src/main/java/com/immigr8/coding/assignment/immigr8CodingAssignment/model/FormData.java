@@ -6,19 +6,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class IndividualPetition {
+public class FormData {
     @Id
     @Column(name = "id", nullable = false)
     private int id;
 
     private String petitionerName;
     private String beneficiaryName;
+    private String petitionType;
     private boolean employsFiftyPlusIndividuals;
     private boolean hasFiftyPlusNonImmigrantStatus;
+
+    // individual petition data
     private String classification;
 
     @Convert(converter = BeneficiaryPriorStaysConverter.class)
-    private BeneficiaryPriorStays beneficiaryPriorStays;
+    private BeneficiaryPriorStays[] beneficiaryPriorStays;
 
     private String employerNameAbroad;
     private String employerAbroadAddress;
@@ -34,14 +37,15 @@ public class IndividualPetition {
     private String country;
 
     @Convert(converter = InterruptionsConverter.class)
-    private Interruptions interruptions;
+    private Interruptions[] interruptions;
 
     private String beneficiaryDuties;
     private String beneficiaryDutiesUS;
     private String beneficiaryExperience;
+    private String companyRelation;
 
     @Convert(converter = StockOwnershipDetailsConverter.class)
-    private StockOwnershipDetails stockOwnershipDetails;
+    private StockOwnershipDetails[] stockOwnershipDetails;
 
     private boolean hasSameQualifyingRelationship;
     private boolean isOpeningNewOffice;
@@ -49,10 +53,18 @@ public class IndividualPetition {
     private String controlBeneficiaryWorkDetails;
     private String placementDescription;
 
-    public IndividualPetition(int id, String petitionerName, String beneficiaryName, boolean employsFiftyPlusIndividuals, String classification, BeneficiaryPriorStays beneficiaryPriorStays, String employerNameAbroad, String employerAbroadAddress, String city, String country, Interruptions interruptions, String beneficiaryDuties, String beneficiaryDutiesUS, String beneficiaryExperience, StockOwnershipDetails stockOwnershipDetails, boolean hasSameQualifyingRelationship, boolean isOpeningNewOffice, boolean isStationedOffsite) {
+    // blank petition data
+    @Convert(converter = ForeignBranchesConverter.class)
+    private ForeignBranches[] foreignBranches;
+
+    public FormData() {
+    }
+
+    public FormData(int id, String petitionerName, String beneficiaryName, String petitionType, boolean employsFiftyPlusIndividuals, String classification, BeneficiaryPriorStays[] beneficiaryPriorStays, String employerNameAbroad, String employerAbroadAddress, String city, String country, Interruptions[] interruptions, String beneficiaryDuties, String beneficiaryDutiesUS, String beneficiaryExperience, String companyRelation, StockOwnershipDetails[] stockOwnershipDetails, boolean hasSameQualifyingRelationship, boolean isOpeningNewOffice, boolean isStationedOffsite, ForeignBranches[] foreignBranches) {
         this.id = id;
         this.petitionerName = petitionerName;
         this.beneficiaryName = beneficiaryName;
+        this.petitionType = petitionType;
         this.employsFiftyPlusIndividuals = employsFiftyPlusIndividuals;
         this.classification = classification;
         this.beneficiaryPriorStays = beneficiaryPriorStays;
@@ -64,10 +76,12 @@ public class IndividualPetition {
         this.beneficiaryDuties = beneficiaryDuties;
         this.beneficiaryDutiesUS = beneficiaryDutiesUS;
         this.beneficiaryExperience = beneficiaryExperience;
+        this.companyRelation = companyRelation;
         this.stockOwnershipDetails = stockOwnershipDetails;
         this.hasSameQualifyingRelationship = hasSameQualifyingRelationship;
         this.isOpeningNewOffice = isOpeningNewOffice;
         this.isStationedOffsite = isStationedOffsite;
+        this.foreignBranches = foreignBranches;
     }
 
     public String getPetitionerName() {
@@ -84,6 +98,14 @@ public class IndividualPetition {
 
     public void setBeneficiaryName(String beneficiaryName) {
         this.beneficiaryName = beneficiaryName;
+    }
+
+    public String getPetitionType() {
+        return petitionType;
+    }
+
+    public void setPetitionType(String petitionType) {
+        this.petitionType = petitionType;
     }
 
     public boolean isEmploysFiftyPlusIndividuals() {
@@ -110,11 +132,11 @@ public class IndividualPetition {
         this.classification = classification;
     }
 
-    public BeneficiaryPriorStays getBeneficiaryPriorStays() {
+    public BeneficiaryPriorStays[] getBeneficiaryPriorStays() {
         return beneficiaryPriorStays;
     }
 
-    public void setBeneficiaryPriorStays(BeneficiaryPriorStays beneficiaryPriorStays) {
+    public void setBeneficiaryPriorStays(BeneficiaryPriorStays[] beneficiaryPriorStays) {
         this.beneficiaryPriorStays = beneficiaryPriorStays;
     }
 
@@ -214,11 +236,11 @@ public class IndividualPetition {
         this.country = country;
     }
 
-    public Interruptions getInterruptions() {
+    public Interruptions[] getInterruptions() {
         return interruptions;
     }
 
-    public void setInterruptions(Interruptions interruptions) {
+    public void setInterruptions(Interruptions[] interruptions) {
         this.interruptions = interruptions;
     }
 
@@ -246,11 +268,19 @@ public class IndividualPetition {
         this.beneficiaryExperience = beneficiaryExperience;
     }
 
-    public StockOwnershipDetails getStockOwnershipDetails() {
+    public String getCompanyRelation() {
+        return companyRelation;
+    }
+
+    public void setCompanyRelation(String companyRelation) {
+        this.companyRelation = companyRelation;
+    }
+
+    public StockOwnershipDetails[] getStockOwnershipDetails() {
         return stockOwnershipDetails;
     }
 
-    public void setStockOwnershipDetails(StockOwnershipDetails stockOwnershipDetails) {
+    public void setStockOwnershipDetails(StockOwnershipDetails[] stockOwnershipDetails) {
         this.stockOwnershipDetails = stockOwnershipDetails;
     }
 
@@ -292,6 +322,14 @@ public class IndividualPetition {
 
     public void setPlacementDescription(String placementDescription) {
         this.placementDescription = placementDescription;
+    }
+
+    public ForeignBranches[] getForeignBranches() {
+        return foreignBranches;
+    }
+
+    public void setForeignBranches(ForeignBranches[] foreignBranches) {
+        this.foreignBranches = foreignBranches;
     }
 
     public int getId() {

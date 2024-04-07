@@ -1,22 +1,10 @@
-import { useState } from "react";
 import "./individualpetitionform.css";
-import SubmitButton from "./common/SubmitButton";
+import NextButton from "./common/NextButton";
 import PreviousButton from "./common/PreviousButton";
 import InputParagraph from "./common/InputParagraph";
 import InputCheckbox from "./common/InputCheckbox";
 
-const IndividualPetitionFourthForm = () => {
-  const [formData, setFormData] = useState({
-    beneficiaryDuties: "",
-    beneficiaryExperience: "",
-    companyRelation: "",
-  });
-
-  const handleOnSubmit = () => {};
-
-  const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+const IndividualPetitionFourthForm = ({ formData, handleInputChange }) => {
   return (
     <>
       <div className="form_wrapper">
@@ -26,7 +14,7 @@ const IndividualPetitionFourthForm = () => {
             "Describe the beneficiary's proposed duties in the United States."
           }
           handleInputChange={(value) =>
-            handleInputChange("beneficiaryDuties", value)
+            handleInputChange("beneficiaryDutiesUS", value)
           }
           width="50%"
         />
@@ -55,10 +43,7 @@ const IndividualPetitionFourthForm = () => {
         />
         <div className="button_container">
           <PreviousButton />
-          <SubmitButton
-            nextPage={"/individual-petition/fifth"}
-            handleOnSubmit={handleOnSubmit}
-          />
+          <NextButton nextPage={"/individual-petition/fifth"} />
         </div>
       </div>
     </>

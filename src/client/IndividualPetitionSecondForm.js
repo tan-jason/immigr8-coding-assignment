@@ -1,33 +1,12 @@
-import { useState } from "react";
 import "./individualpetitionform.css";
 import InputField from "./common/InputField";
-import SubmitButton from "./common/SubmitButton";
+import NextButton from "./common/NextButton";
 import PreviousButton from "./common/PreviousButton";
 import CheckboxWrapper from "./common/CheckboxWrapper";
 import DropdownSelect from "./common/DropdownSelect";
 import { US_STATES } from "../constants";
 
-const IndividualPetitionSecondForm = () => {
-  const [formData, setFormData] = useState({
-    employerName: "",
-    address: "",
-    aptSteFlr: "",
-    number: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    province: "",
-    postalCode: "",
-    country: "",
-  });
-
-  const handleOnSubmit = () => {
-    // TODO: handle API call and store formData
-  };
-
-  const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+const IndividualPetitionSecondForm = ({ handleInputChange, formData }) => {
   return (
     <>
       <div className="form_wrapper">
@@ -35,13 +14,15 @@ const IndividualPetitionSecondForm = () => {
         <form className="individual_petition_form_wrapper">
           <InputField
             fieldName="Name of Employer Abroad"
-            onChange={(value) => handleInputChange("employerName", value)}
+            onChange={(value) => handleInputChange("employerNameAbroad", value)}
           />
           <h3>Address of Employer Abroad</h3>
           <div className="question_wrapper" style={{ display: "flex" }}>
             <InputField
               fieldName="Street Number and Name"
-              onChange={(value) => handleInputChange("address", value)}
+              onChange={(value) =>
+                handleInputChange("employerAbroadAddress", value)
+              }
               style={{ marginTop: "20px" }}
             />
             <div
@@ -50,15 +31,15 @@ const IndividualPetitionSecondForm = () => {
             >
               <CheckboxWrapper
                 checkboxLabel="Apt."
-                onChange={(value) => handleInputChange("aptSteFlr", value)}
+                onChange={(value) => handleInputChange("isApt", value)}
               />
               <CheckboxWrapper
                 checkboxLabel="Ste."
-                onChange={(value) => handleInputChange("aptSteFlr", value)}
+                onChange={(value) => handleInputChange("isSte", value)}
               />
               <CheckboxWrapper
                 checkboxLabel="Flr."
-                onChange={(value) => handleInputChange("aptSteFlr", value)}
+                onChange={(value) => handleInputChange("isFlr", value)}
               />
             </div>
             <InputField
@@ -67,7 +48,7 @@ const IndividualPetitionSecondForm = () => {
                 width: "10%",
               }}
               fieldName="Number"
-              onChange={(value) => handleInputChange("number", value)}
+              onChange={(value) => handleInputChange("aptSteFlrNumber", value)}
             />
             <InputField
               style={{ marginLeft: "70px", width: "25%" }}
@@ -110,10 +91,7 @@ const IndividualPetitionSecondForm = () => {
         </form>
         <div className="button_container">
           <PreviousButton />
-          <SubmitButton
-            nextPage={"/individual-petition/third"}
-            handleOnSubmit={handleOnSubmit}
-          />
+          <NextButton nextPage={"/individual-petition/third"} />
         </div>
       </div>
     </>

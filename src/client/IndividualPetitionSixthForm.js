@@ -1,23 +1,11 @@
 import { useState } from "react";
 import "./individualpetitionform.css";
-import SubmitButton from "./common/SubmitButton";
+import NextButton from "./common/NextButton";
 import PreviousButton from "./common/PreviousButton";
 import InputParagraph from "./common/InputParagraph";
 import InputCheckbox from "./common/InputCheckbox";
 
-const IndividualPetitionSixthForm = () => {
-  const [formData, setFormData] = useState({
-    comingToStates: "",
-    stationedOffSite: "",
-    describeSupervision: "",
-    describePlacement: "",
-  });
-
-  const handleOnSubmit = () => {};
-
-  const handleInputChange = (field, value) => {
-    setFormData({ ...formData, [field]: value });
-  };
+const IndividualPetitionSixthForm = ({ handleInputChange, formData }) => {
   return (
     <>
       <div className="form_wrapper">
@@ -27,7 +15,7 @@ const IndividualPetitionSixthForm = () => {
             "Is the beneficiary coming to the United States to open a new office?"
           }
           checkboxSet={["Yes", "No (attach explanation)"]}
-          onChange={(value) => handleInputChange("comingToStates", value)}
+          onChange={(value) => handleInputChange("isOpeningNewOffice", value)}
         />
         <h3>
           <b>
@@ -40,14 +28,14 @@ const IndividualPetitionSixthForm = () => {
             "Will the beneficiary be stationed primarily offsite (at the worksite of an employer other than the petitioner or its affiliate, subsidiary, or parent)?"
           }
           checkboxSet={["Yes", "No "]}
-          onChange={(value) => handleInputChange("stationedOffSite", value)}
+          onChange={(value) => handleInputChange("isStationedOffsite", value)}
         />
         <InputParagraph
           question={
             "If you answered yes to the preceeding question, describe how and by whom the beneficiary's work will be controlled and supervised. Include a description of the amount of time each supervisor is expected to control and supervise the work. If you need additional space to respond to this question, proceed to Part 9 of the Form I-129, and type or print your explanation."
           }
           handleInputChange={(value) =>
-            handleInputChange("describeSupervision", value)
+            handleInputChange("controlBeneficiaryWorkDetails", value)
           }
           width="50%"
           numRows={4}
@@ -57,7 +45,7 @@ const IndividualPetitionSixthForm = () => {
             "If you answered yes to the preceeding question, describe the reasons why placement at another worksite outisd ehte petitioner, subsidiary, affiliate, or parent is needed. Include a description of how the beneficiary's duties at another worksite relate to the need for the specialized knowledge he or she possesses. If you need additional space to respond to this question, proceed to Part 9 of the Form I-129, and type or print your explanation."
           }
           handleInputChange={(value) =>
-            handleInputChange("describePlacement", value)
+            handleInputChange("placementDescription", value)
           }
           width="50%"
           numRows={5}
@@ -65,10 +53,7 @@ const IndividualPetitionSixthForm = () => {
 
         <div className="button_container">
           <PreviousButton />
-          <SubmitButton
-            nextPage={"/additional-fees"}
-            handleOnSubmit={handleOnSubmit}
-          />
+          <NextButton nextPage={"/additional-fees"} />
         </div>
       </div>
     </>
