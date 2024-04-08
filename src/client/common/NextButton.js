@@ -10,7 +10,7 @@ const NextButton = ({ nextPage, handleOnSubmit }) => {
   };
 
   return (
-    <button className="next-button" role="button" onClick={handleClick}>
+    <button className="next-button" onClick={handleClick}>
       Next
     </button>
   );

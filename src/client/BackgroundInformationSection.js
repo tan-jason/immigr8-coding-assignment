@@ -24,7 +24,7 @@ const BackgroundInformationSection = ({ handleInputChange, formData }) => {
               This petition is (select <b>only one</b> box):{" "}
             </p>
           }
-          checkboxSet={["a. An individual petition", "b. A blanket petition"]}
+          checkboxSet={["a. An individual petition", "b. A blank petition"]}
           onChange={(value) => handleInputChange("petitionType", value)}
           formData={formData.petitionType}
         />

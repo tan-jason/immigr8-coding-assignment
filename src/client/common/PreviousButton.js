@@ -11,7 +11,6 @@ const PreviousButton = () => {
   return (
     <button
       className="previous-button"
-      role="button"
       onClick={handleClick}
       style={{ marginRight: "50px" }}
     >

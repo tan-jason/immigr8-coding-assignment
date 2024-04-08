@@ -11,7 +11,7 @@ const SubmitButton = ({ nextPage, handleOnSubmit }) => {
   };
 
   return (
-    <button className="submit-button" role="button" onClick={handleClick}>
+    <button className="submit-button" onClick={handleClick}>
       Submit
     </button>
   );
