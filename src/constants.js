@@ -1,3 +1,8 @@
+export const TABLE_ROWS_FIRST_FORM = 7;
+export const TABLE_ROWS_THIRD_FORM = 6;
+export const TABLE_ROWS_FIFTH_FORM = 5;
+export const TABLE_ROWS_BLANK_FORM = 8;
+
 export const long_table_question_1 = (
   <p>
     List the beneficiary's and any dependent family member's prior periods of
@@ -94,3 +99,57 @@ export const US_STATES = [
   "WI",
   "WY",
 ];
+
+export const FORM_DATA_INITIAL_STATE = {
+  petitionerName: "",
+  beneficiaryName: "",
+  petitionType: "",
+  employsFiftyPlusIndividuals: "",
+  hasFiftyPlusNonImmigrantStatus: "",
+  // individual petition data
+  classification: "",
+  beneficiaryPriorStays: Array.from({ length: TABLE_ROWS_FIRST_FORM }).map(
+    () => ({
+      subjectName: "",
+      periodStart: "",
+      periodEnd: "",
+    })
+  ),
+  employerNameAbroad: "",
+  employerAbroadAddress: "",
+  isApt: "",
+  isSte: "",
+  isFlr: "",
+  aptSteFlrNumber: "",
+  city: "",
+  state: "",
+  zipCode: "",
+  province: "",
+  postalCode: "",
+  country: "",
+  interruptions: Array.from({ length: TABLE_ROWS_THIRD_FORM }).map(() => ({
+    employmentDateStart: "",
+    employmentDateEnd: "",
+    explanation: "",
+  })),
+  beneficiaryDuties: "",
+  beneficiaryDutiesUS: "",
+  beneficiaryExperience: "",
+  companyRelation: "",
+  stockOwnershipDetails: Array.from({ length: TABLE_ROWS_FIFTH_FORM }).map(
+    () => ({
+      percentageOwnership: "",
+      federalEmployerId: "",
+    })
+  ),
+  hasSameQualifyingRelationship: "",
+  isOpeningNewOffice: "",
+  isStationedOffsite: "",
+  controlBeneficiaryWorkDetails: "",
+  placementDescription: "",
+  // blank petition data
+  foreignBranches: Array.from({ length: TABLE_ROWS_BLANK_FORM }).map(() => ({
+    nameAndAddress: "",
+    relationship: "",
+  })),
+};

@@ -4,8 +4,7 @@ import TableQuestion from "./common/TableQuestion";
 import PreviousButton from "./common/PreviousButton";
 import InputParagraph from "./common/InputParagraph";
 import { long_table_question_2 } from "../constants";
-
-export const TABLE_ROWS_THIRD_FORM = 6;
+import { TABLE_ROWS_THIRD_FORM } from "../constants";
 
 const IndividualPetitionThirdForm = ({
   handleInputChange,

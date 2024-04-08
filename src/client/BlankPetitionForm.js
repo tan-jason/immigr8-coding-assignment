@@ -1,8 +1,7 @@
 import NextButton from "./common/NextButton";
 import TableQuestion from "./common/TableQuestion";
 import PreviousButton from "./common/PreviousButton";
-
-export const TABLE_ROWS_BLANKET_FORM = 8;
+import { TABLE_ROWS_BLANK_FORM } from "../constants";
 
 const BlankPetitionForm = ({ handleTableInputChange }) => {
   return (
@@ -14,7 +13,7 @@ const BlankPetitionForm = ({ handleTableInputChange }) => {
         }
         headers={["Name and Address", "Relationship"]}
         fields={["nameAndAddress", "relationship"]}
-        numRows={TABLE_ROWS_BLANKET_FORM}
+        numRows={TABLE_ROWS_BLANK_FORM}
         tableData={"foreignBranches"}
         handleTableInputChange={handleTableInputChange}
       />

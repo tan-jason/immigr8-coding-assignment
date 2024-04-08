@@ -4,8 +4,7 @@ import NextButton from "./common/NextButton";
 import TableQuestion from "./common/TableQuestion";
 import { long_table_question_1 } from "../constants";
 import PreviousButton from "./common/PreviousButton";
-
-export const TABLE_ROWS_FIRST_FORM = 7;
+import { TABLE_ROWS_FIRST_FORM } from "../constants";
 
 const IndividualPetitionFirstForm = ({
   handleInputChange,

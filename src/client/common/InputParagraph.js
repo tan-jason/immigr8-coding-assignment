@@ -22,7 +22,7 @@ const InputParagraph = ({
         id="paragraphInput"
         rows={numRows}
         cols="50"
-        onChange={handleInputChange}
+        onChange={(e) => handleInputChange(e.target.value)}
         style={{ width: width }}
       />
     </div>

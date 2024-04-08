@@ -2,20 +2,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BackgroundInfromationSection from "./client/BackgroundInformationSection";
 import IndividualPetitionFirstForm from "./client/IndividualPetitionFirstForm";
 import IndividualPetitionSecondForm from "./client/IndividualPetitionSecondForm";
-import IndividualPetitionThirdForm, {
-  TABLE_ROWS_THIRD_FORM,
-} from "./client/IndividualPetitionThirdForm";
+import IndividualPetitionThirdForm from "./client/IndividualPetitionThirdForm";
 import IndividualPetitionFourthForm from "./client/IndividualPetitionFourthForm";
-import IndividualPetitionFifthForm, {
-  TABLE_ROWS_FIFTH_FORM,
-} from "./client/IndividualPetitionFifthForm";
+import IndividualPetitionFifthForm from "./client/IndividualPetitionFifthForm";
 import IndividualPetitionSixthForm from "./client/IndividualPetitionSixthForm";
 import AdditionalFees from "./client/AdditionalFees";
 import { useState } from "react";
-import { TABLE_ROWS_FIRST_FORM } from "./client/IndividualPetitionFirstForm";
-import BlankPetitionForm, {
-  TABLE_ROWS_BLANKET_FORM,
-} from "./client/BlankPetitionForm";
+import BlankPetitionForm from "./client/BlankPetitionForm";
+import {
+  TABLE_ROWS_BLANK_FORM,
+  TABLE_ROWS_FIFTH_FORM,
+  TABLE_ROWS_FIRST_FORM,
+  TABLE_ROWS_THIRD_FORM,
+} from "./constants";
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -66,12 +65,10 @@ const App = () => {
     controlBeneficiaryWorkDetails: "",
     placementDescription: "",
     // blank petition data
-    foreignBranches: Array.from({ length: TABLE_ROWS_BLANKET_FORM }).map(
-      () => ({
-        nameAndAddress: "",
-        relationship: "",
-      })
-    ),
+    foreignBranches: Array.from({ length: TABLE_ROWS_BLANK_FORM }).map(() => ({
+      nameAndAddress: "",
+      relationship: "",
+    })),
   });
 
   const handleInputChange = (field, value) => {
@@ -79,9 +76,13 @@ const App = () => {
   };
 
   const handleTableInputChange = (index, field, value, data) => {
-    const updatedTableData = [...formData[data]];
+    const updatedFormData = { ...formData };
+    const updatedTableData = [...updatedFormData[data]];
+
     updatedTableData[index][field] = value;
-    setFormData({ ...formData, data: updatedTableData });
+    updatedFormData[data] = updatedTableData;
+
+    setFormData(updatedFormData);
   };
 
   return (

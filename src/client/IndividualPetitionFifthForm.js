@@ -3,8 +3,7 @@ import InputCheckbox from "./common/InputCheckbox";
 import NextButton from "./common/NextButton";
 import TableQuestion from "./common/TableQuestion";
 import PreviousButton from "./common/PreviousButton";
-
-export const TABLE_ROWS_FIFTH_FORM = 5;
+import { TABLE_ROWS_FIFTH_FORM } from "../constants";
 
 const IndividualPetitionFifthForm = ({
   handleInputChange,
