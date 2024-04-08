@@ -25,6 +25,7 @@ const IndividualPetitionFifthForm = ({
         fields={["percentageOwnership", "federalEmployerId"]}
         tableData={"stockOwnershipDetails"}
         handleTableInputChange={handleTableInputChange}
+        formData={formData.stockOwnershipDetails}
       />
       <div className="individual_petition_form_wrapper">
         <InputCheckbox
@@ -39,6 +40,7 @@ const IndividualPetitionFifthForm = ({
             handleInputChange("hasSameQualifyingRelationship", value)
           }
           checkboxLabelOnRight
+          formData={formData.hasSameQualifyingRelationship}
         />
       </div>
 

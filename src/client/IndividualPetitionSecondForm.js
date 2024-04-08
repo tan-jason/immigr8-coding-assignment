@@ -15,6 +15,7 @@ const IndividualPetitionSecondForm = ({ handleInputChange, formData }) => {
           <InputField
             fieldName="Name of Employer Abroad"
             onChange={(value) => handleInputChange("employerNameAbroad", value)}
+            formData={formData.employerNameAbroad}
           />
           <h3>Address of Employer Abroad</h3>
           <div className="question_wrapper" style={{ display: "flex" }}>
@@ -24,6 +25,7 @@ const IndividualPetitionSecondForm = ({ handleInputChange, formData }) => {
                 handleInputChange("employerAbroadAddress", value)
               }
               style={{ marginTop: "20px" }}
+              formData={formData.employerAbroadAddress}
             />
             <div
               className="checkboxes_question_wrapper_row_1"
@@ -49,11 +51,13 @@ const IndividualPetitionSecondForm = ({ handleInputChange, formData }) => {
               }}
               fieldName="Number"
               onChange={(value) => handleInputChange("aptSteFlrNumber", value)}
+              formData={formData.aptSteFlrNumber}
             />
             <InputField
               style={{ marginLeft: "70px", width: "25%" }}
               fieldName="City or Town"
               onChange={(value) => handleInputChange("city", value)}
+              formData={formData.city}
             />
           </div>
           <div
@@ -70,22 +74,26 @@ const IndividualPetitionSecondForm = ({ handleInputChange, formData }) => {
               style={{ marginRight: "50px", width: "25%" }}
               fieldName="Zip Code"
               onChange={(value) => handleInputChange("zipCode", value)}
+              formData={formData.zipCode}
             />
 
             <InputField
               style={{ marginRight: "50px", width: "10%" }}
               fieldName="Province"
               onChange={(value) => handleInputChange("province", value)}
+              formData={formData.province}
             />
             <InputField
               style={{ marginRight: "50px", width: "10%" }}
               fieldName="Postal Code"
               onChange={(value) => handleInputChange("postalCode", value)}
+              formData={formData.postalCode}
             />
             <InputField
               style={{ width: "20%" }}
               fieldName="Country"
               onChange={(value) => handleInputChange("country", value)}
+              formData={formData.country}
             />
           </div>
         </form>

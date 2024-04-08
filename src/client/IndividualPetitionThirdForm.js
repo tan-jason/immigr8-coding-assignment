@@ -36,6 +36,7 @@ const IndividualPetitionThirdForm = ({
           fields={["employmentDateStart", "employmentDateEnd", "explanation"]}
           tableData={"interruptions"}
           handleTableInputChange={handleTableInputChange}
+          formData={formData.interruptions}
         />
         <InputParagraph
           question={long_table_question_2}
@@ -43,6 +44,7 @@ const IndividualPetitionThirdForm = ({
             handleInputChange("beneficiaryDuties", value)
           }
           width="50%"
+          formData={formData.beneficiaryDuties}
         />
         <div className="button_container">
           <PreviousButton />

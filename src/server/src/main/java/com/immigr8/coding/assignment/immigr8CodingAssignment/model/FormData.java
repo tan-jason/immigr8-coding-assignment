@@ -1,14 +1,11 @@
 package com.immigr8.coding.assignment.immigr8CodingAssignment.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class FormData {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String petitionerName;

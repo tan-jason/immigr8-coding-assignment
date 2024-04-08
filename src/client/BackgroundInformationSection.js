@@ -11,10 +11,12 @@ const BackgroundInformationSection = ({ handleInputChange, formData }) => {
         <InputField
           fieldName="Name of the Petitioner"
           onChange={(value) => handleInputChange("petitionerName", value)}
+          formData={formData.petitionerName}
         />
         <InputField
           fieldName="Name of the Beneficiary"
           onChange={(value) => handleInputChange("beneficiaryName", value)}
+          formData={formData.beneficiaryName}
         />
         <InputCheckbox
           question={
@@ -24,6 +26,7 @@ const BackgroundInformationSection = ({ handleInputChange, formData }) => {
           }
           checkboxSet={["a. An individual petition", "b. A blanket petition"]}
           onChange={(value) => handleInputChange("petitionType", value)}
+          formData={formData.petitionType}
         />
         <InputCheckbox
           question="Does the petitioner employ 50 or more individuals in the U.S.?"
@@ -31,6 +34,7 @@ const BackgroundInformationSection = ({ handleInputChange, formData }) => {
           onChange={(value) =>
             handleInputChange("employsFiftyPlusIndividuals", value)
           }
+          formData={formData.employsFiftyPlusIndividuals}
         />
         <InputCheckbox
           question="If yes, are more than 50 percent of those employee in H-1B, L-1A, or L1-B nonimmigrant status?"
@@ -38,6 +42,7 @@ const BackgroundInformationSection = ({ handleInputChange, formData }) => {
           onChange={(value) =>
             handleInputChange("hasFiftyPlusNonImmigrantStatus", value)
           }
+          formData={formData.hasFiftyPlusNonImmigrantStatus}
         />
       </form>
       <NextButton

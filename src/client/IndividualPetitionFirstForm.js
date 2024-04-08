@@ -26,6 +26,7 @@ const IndividualPetitionFirstForm = ({
             "b. L-1B specialized knowledge",
           ]}
           onChange={(value) => handleInputChange("classification", value)}
+          formData={formData.classification}
         />
       </div>
       <TableQuestion
@@ -47,6 +48,7 @@ const IndividualPetitionFirstForm = ({
         numRows={TABLE_ROWS_FIRST_FORM}
         tableData={"beneficiaryPriorStays"}
         handleTableInputChange={handleTableInputChange}
+        formData={formData.beneficiaryPriorStays}
       />
       <div className="button_container">
         <PreviousButton />

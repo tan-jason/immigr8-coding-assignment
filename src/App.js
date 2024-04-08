@@ -15,6 +15,8 @@ import {
   TABLE_ROWS_FIRST_FORM,
   TABLE_ROWS_THIRD_FORM,
 } from "./constants";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -87,6 +89,7 @@ const App = () => {
 
   return (
     <div className="container-wrapper" style={{ paddingBottom: "100px" }}>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route
@@ -166,7 +169,9 @@ const App = () => {
           />
           <Route
             path="/additional-fees"
-            element={<AdditionalFees formData={formData} />}
+            element={
+              <AdditionalFees setFormData={setFormData} formData={formData} />
+            }
           />
         </Routes>
       </BrowserRouter>

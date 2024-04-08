@@ -17,6 +17,7 @@ const IndividualPetitionFourthForm = ({ formData, handleInputChange }) => {
             handleInputChange("beneficiaryDutiesUS", value)
           }
           width="50%"
+          formData={formData.beneficiaryDutiesUS}
         />
         <InputParagraph
           question={"Describe the beneficiary's education and work experience"}
@@ -24,6 +25,7 @@ const IndividualPetitionFourthForm = ({ formData, handleInputChange }) => {
             handleInputChange("beneficiaryExperience", value)
           }
           width="50%"
+          formData={formData.beneficiaryExperience}
         />
         <InputCheckbox
           question={
@@ -40,6 +42,7 @@ const IndividualPetitionFourthForm = ({ formData, handleInputChange }) => {
             "e. Joint Venture",
           ]}
           onChange={(value) => handleInputChange("companyRelation", value)}
+          formData={formData.companyRelation}
         />
         <div className="button_container">
           <PreviousButton />

@@ -5,6 +5,7 @@ const InputParagraph = ({
   handleInputChange,
   width,
   numRows = 7,
+  formData,
 }) => {
   return (
     <div
@@ -24,6 +25,7 @@ const InputParagraph = ({
         cols="50"
         onChange={(e) => handleInputChange(e.target.value)}
         style={{ width: width }}
+        value={formData}
       />
     </div>
   );

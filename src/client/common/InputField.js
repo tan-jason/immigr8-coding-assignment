@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const InputField = ({ fieldName, onChange, style }) => {
+const InputField = ({ fieldName, onChange, style, formData }) => {
   return (
     <div
       className={`input_wrapper_${fieldName}`}
@@ -16,6 +16,7 @@ const InputField = ({ fieldName, onChange, style }) => {
         className={`input_${fieldName}`}
         type="text"
         onChange={(e) => onChange(e.target.value)}
+        value={formData}
       />
     </div>
   );

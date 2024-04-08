@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./individualpetitionform.css";
 import NextButton from "./common/NextButton";
 import PreviousButton from "./common/PreviousButton";
@@ -16,6 +15,7 @@ const IndividualPetitionSixthForm = ({ handleInputChange, formData }) => {
           }
           checkboxSet={["Yes", "No (attach explanation)"]}
           onChange={(value) => handleInputChange("isOpeningNewOffice", value)}
+          formData={formData.isOpeningNewOffice}
         />
         <h3>
           <b>
@@ -29,6 +29,7 @@ const IndividualPetitionSixthForm = ({ handleInputChange, formData }) => {
           }
           checkboxSet={["Yes", "No "]}
           onChange={(value) => handleInputChange("isStationedOffsite", value)}
+          formData={formData.isStationedOffsite}
         />
         <InputParagraph
           question={
@@ -39,6 +40,7 @@ const IndividualPetitionSixthForm = ({ handleInputChange, formData }) => {
           }
           width="50%"
           numRows={4}
+          formData={formData.controlBeneficiaryWorkDetails}
         />
         <InputParagraph
           question={
@@ -49,6 +51,7 @@ const IndividualPetitionSixthForm = ({ handleInputChange, formData }) => {
           }
           width="50%"
           numRows={5}
+          formData={formData.placementDescription}
         />
 
         <div className="button_container">

@@ -1,8 +1,10 @@
-import { ADDITIONAL_FEES } from "../constants";
+import { ADDITIONAL_FEES, FORM_DATA_INITIAL_STATE } from "../constants";
 import PreviousButton from "./common/PreviousButton";
 import SubmitButton from "./common/SubmitButton";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const AdditionalFees = ({ formData }) => {
+const AdditionalFees = ({ formData, setFormData }) => {
   const handleOnSubmit = () => {
     let userFormData = formData;
 
@@ -41,7 +43,20 @@ const AdditionalFees = ({ formData }) => {
             parseStockOwnershipDetails(formData.stockOwnershipDetails)
           ),
     };
-    console.log(userFormData);
+
+    // store form data
+    fetch("http://localhost:8080/additional-fees/", {
+      method: "POST",
+      headers: { "Content-Type": "application/JSON" },
+      body: JSON.stringify(userFormData),
+    })
+      .then(() => {
+        setFormData(FORM_DATA_INITIAL_STATE);
+        toast.success("Form data saved!");
+      })
+      .catch((err) => {
+        toast.error("Something went wrong");
+      });
   };
 
   const parseStockOwnershipDetails = (stockOwnershipDetails) => {

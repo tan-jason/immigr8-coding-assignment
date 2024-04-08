@@ -5,6 +5,7 @@ const InputCheckbox = ({
   checkboxSet,
   onChange,
   checkboxLabelOnRight = false,
+  formData,
 }) => {
   return (
     <div
@@ -46,6 +47,7 @@ const InputCheckbox = ({
                 className={`input_${question}`}
                 type="checkbox"
                 onChange={() => onChange(checkboxValue)}
+                checked={formData === checkboxValue ? true : false}
               />
 
               {checkboxLabelOnRight ? (

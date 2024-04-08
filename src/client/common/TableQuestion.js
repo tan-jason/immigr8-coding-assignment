@@ -7,6 +7,7 @@ const TableQuestion = ({
   handleTableInputChange,
   fields,
   tableData,
+  formData,
 }) => {
   return (
     <div className="table_question_container">
@@ -35,6 +36,7 @@ const TableQuestion = ({
                           tableData
                         )
                       }
+                      value={formData[rowIndex][fields[colIndex]]}
                     />
                   </td>
                 ))}
