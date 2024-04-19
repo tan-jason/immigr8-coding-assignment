@@ -6,8 +6,8 @@ Made with React.js, Springboot and PostgreSQL database hosted on AWS.
 
 Utilized tables, dropdowns, textboxes and checkboxes for data collection.
 
-![alt text](image.png)
+![alt text](readme_img3.png)
 
-![alt text](image-2.png)
+![alt text](readme_img2.png)
 
-![alt text](image-1.png)
+![alt text](readme_img1.png)
