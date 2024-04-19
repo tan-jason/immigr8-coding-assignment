@@ -51,6 +51,7 @@ const AdditionalFees = ({ formData, setFormData }) => {
       body: JSON.stringify(userFormData),
     })
       .then(() => {
+        // window.location.reload();
         setFormData(FORM_DATA_INITIAL_STATE);
         toast.success("Form data saved!");
       })
@@ -102,7 +103,7 @@ const AdditionalFees = ({ formData, setFormData }) => {
       style={{
         top: "30%",
         left: "10%",
-        paddingRight: "100px",
+        paddingRight: "200px",
         position: "absolute",
       }}
     >
